@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Root from './Root';
+import RootContainer from './containers/RootContainer';
 
 ReactDOM.render(
-  <Root />,
+  <RootContainer />,
   document.getElementById('root')
 )
 
 if (module.hot) {
   module.hot.accept('./Root', () => {
     // eslint-disable-next-line
-    const NextRoot = require('./Root').default
+    const NextRoot = require('./containers/RootContainer').default
     ReactDOM.render(
-      <NextRoot />,
+      <RootContainer />,
       document.getElementById('root')
     )
   })
