@@ -1,6 +1,6 @@
 const server = require('http').createServer()
 const io = require('socket.io')(server)
-const events = require('./constants/server-events')
+require('./constants/server-events')
 
 io.on('connection', function (client) {
   client.on('error', function (err) {
@@ -9,17 +9,19 @@ io.on('connection', function (client) {
   })
 
   client.on('register', (data) => {
-    console.log("new client registerred: ")
-    console.log(events)
+    console.log("new client registered: ")
   })
 
-  client.on(events.CREATE_ROOM, (data) => {});
-  client.on(events.JOIN_ROOM, (data) => {});
-  client.on(events.LOAD_CHAT_HISTORY, (data) => {});
-  client.on(events.GET_AVAILABLE_USERS, (data) => {});
-  client.on(events.GET_ROOMS, (data) => {});
-  client.on(events.MESSAGE, (data) => {});
-  client.on(events.DISCONNECT, (data) => {});
+  // client.on(CREATE_ROOM, (data) => {});
+  // client.on(JOIN_ROOM, (data) => {});
+  // client.on(LOAD_CHAT_HISTORY, (data) => {});
+  // client.on(GET_AVAILABLE_USERS, (data) => {});
+  // client.on(GET_ROOMS, (data) => {});
+  client.on('message', (data) => {
+    console.log(data)
+    io.sockets.emit('new_message', { message : data, username : 'Anonymous' });
+  });
+  client.on(DISCONNECT, (data) => {});
 })
 
 server.listen(3000, function (err) {

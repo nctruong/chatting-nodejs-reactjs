@@ -1,0 +1,14 @@
+@import './chatbox.scss';
+
+html {
+    font-family: Roboto, sans-serif;
+}
+
+.chatbox .content {
+    height: 500px;
+    border: 1px solid grey;
+}
+
+.messageInput {
+    width: 100%;
+}

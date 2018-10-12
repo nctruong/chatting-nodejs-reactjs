@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import ChatboxContainer from '../containers/ChatboxContainer'
 
 class Root extends Component {
     constructor(props) {
@@ -7,13 +8,15 @@ class Root extends Component {
     }
 
     componentWillMount(){
-        this.props.client().register("Will", "Hello there", (data) => {
+        this.props.client("Will").register("Hello there", (data) => {
             console.log('connecting')
         }) 
     }
     render () {
         return (
-            <h1>I'm Root</h1>
+
+            <ChatboxContainer />     
+
         )
     }
 }
