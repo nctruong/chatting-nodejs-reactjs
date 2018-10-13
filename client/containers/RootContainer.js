@@ -7,7 +7,7 @@ const RootContainer = props => <Root {...props} />;
 
 const mapStateToProps = (props) => {
     return {
-        client
+        client: client(),
     }
 }
 

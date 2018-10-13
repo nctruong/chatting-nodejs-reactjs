@@ -8,7 +8,7 @@ class Root extends Component {
     }
 
     componentWillMount(){
-        this.props.client("Will").register("Hello there", (data) => {
+        this.props.client.register("Hello there", (data) => {
             console.log('connecting')
         }) 
     }
