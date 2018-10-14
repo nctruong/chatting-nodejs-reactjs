@@ -4,5 +4,5 @@ Instruction: http://www.guruonrails.com/building-chat-application-using-nodejs-a
 
 This is demo project to prove my MERN Stack skills.
 
-- Server: Node.js
-- Client: React.js
+- Server: NodeJS
+- Client: ReactJS with Redux
