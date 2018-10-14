@@ -15,7 +15,8 @@ const initialState = {
           image: null,
         },
       },
-    }
+    },
+    messages: []
   }
   
   export default initialState;

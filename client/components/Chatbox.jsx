@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Message from './message'
-import ClientActions from '../actions/client-action'
  
 class Chatbox extends Component {
     
@@ -20,6 +19,7 @@ class Chatbox extends Component {
     }
 
     handleReceiveMessage() {
+        console.log("handle receive message")
         this.props.listenMessage(this.props.client)
     }
 
@@ -28,6 +28,8 @@ class Chatbox extends Component {
     }
 
     render() {
+        console.log("this.props.messages: ", this.props.messages)
+        const messages = this.props.messages || []
         return (
             <div className="chatbox col-md-12">
                 <div className="panel">
@@ -42,7 +44,7 @@ class Chatbox extends Component {
                     </div>
                     <div className="panel-body msg_container_base">  
                         { 
-                            this.state.messages.map((data, i) => <Message key={i} content= {data.message} username={data.username}/>)
+                            messages.map((data, i) => <Message key={i} content= {data.message} username={data.username}/>)
                         }
                     </div>
                     <div className="panel-footer">
